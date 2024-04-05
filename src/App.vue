@@ -1,15 +1,22 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import HomePage from './components/pages/HomePage.vue';
+import DetailPage from './components/pages/DetailPage.vue';
+import ContactUsPage from './components/pages/ContactUsPage.vue';
 export default {
   name: 'Glossario',
   components: {
-    AppHeader
+    AppHeader, HomePage, DetailPage, ContactUsPage
   }
 };
 </script>
 
 <template>
   <AppHeader />
+  <HomePage />
+  <DetailPage />
+  <ContactUsPage />
+
 </template>
 
 <style lang="scss">
