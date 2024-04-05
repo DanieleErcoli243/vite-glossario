@@ -13,10 +13,7 @@ export default {
 
 <template>
   <AppHeader />
-  <HomePage />
-  <DetailPage />
-  <ContactUsPage />
-
+  <RouterVue />
 </template>
 
 <style lang="scss">
