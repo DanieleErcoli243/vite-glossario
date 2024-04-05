@@ -1,11 +1,15 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
 export default {
-  name: 'Glossario'
+  name: 'Glossario',
+  components: {
+    AppHeader
+  }
 };
 </script>
 
 <template>
-
+  <AppHeader />
 </template>
 
 <style lang="scss">
