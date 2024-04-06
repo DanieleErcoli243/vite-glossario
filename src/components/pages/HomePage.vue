@@ -1,8 +1,12 @@
 <script>
 import axios from 'axios';
+import BaseCard from '../BaseCard.vue';
 const baseUri = 'http://localhost:8000/api/words/';
 export default {
     name: 'HomePage',
+    components: {
+        BaseCard
+    },
     data: () => ({
         words: []
     }),
@@ -29,5 +33,18 @@ export default {
 </script>
 
 <template>
-    <h1>Pagina Iniziale</h1>
+    <div class="row">
+
+        <BaseCard :words="words" />
+    </div>
 </template>
+
+<style lang="scss" scoped>
+/* riga */
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+</style>
