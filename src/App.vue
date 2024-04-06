@@ -11,7 +11,10 @@ export default {
 
 <template>
   <AppHeader />
-  <RouterVue />
+  <div class="container">
+    <RouterView />
+
+  </div>
 </template>
 
 <style lang="scss">
