@@ -10,7 +10,10 @@ export default {
 
 <template>
     <div v-for="word in words" :key="word.id" class="card">
-        <h2>{{ word.title }}</h2>
+        <div class="space-between">
+            <h2>{{ word.title }}</h2>
+            <RouterLink to="/show">Vedi Dettaglio</RouterLink>
+        </div>
         <p>{{ word.definition }}</p>
         <div>
             <ul class="tags">
@@ -36,8 +39,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-/* tag */
-
 .card {
     border: 1px solid rgb(137, 45, 137);
     padding: 10px;
@@ -50,17 +51,22 @@ export default {
     }
 }
 
+/* lista generica */
+
 ul {
     list-style-type: none;
     margin: 20px 0;
 }
 
+/* tag */
 .tags {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
+
+/* links */
 
 .links {
     display: flex;
