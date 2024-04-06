@@ -7,7 +7,9 @@ export default {
 <template>
     <header>
         <nav>
-            <h1>GLOSSARIO</h1>
+            <RouterLink to="/">
+                <h1>GLOSSARIO</h1>
+            </RouterLink>
             <ul>
                 <li>
                     <RouterLink to="/">Home</RouterLink>
@@ -22,3 +24,25 @@ export default {
         </nav>
     </header>
 </template>
+
+<style lang="scss" scoped>
+header {
+    box-shadow: 0 10px 10px lightgray;
+}
+
+/* lista dei link */
+nav {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+    }
+}
+</style>
