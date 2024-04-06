@@ -10,13 +10,13 @@ export default {
             <h1>GLOSSARIO</h1>
             <ul>
                 <li>
-                    Home
+                    <RouterLink to="/">Home</RouterLink>
                 </li>
                 <li>
-                    Dettaglio
+                    <RouterLink to="/show">Dettaglio</RouterLink>
                 </li>
                 <li>
-                    Contattaci
+                    <RouterLink to="/contact-us">Contattaci</RouterLink>
                 </li>
             </ul>
         </nav>
