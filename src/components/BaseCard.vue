@@ -42,7 +42,12 @@ export default {
     border: 1px solid rgb(137, 45, 137);
     padding: 10px;
     box-shadow: 10px 10px 10px goldenrod;
-    border-radius: 20px
+
+    border-radius: 20px;
+
+    h2 {
+        margin-bottom: 10px;
+    }
 }
 
 ul {
