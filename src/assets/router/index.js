@@ -9,9 +9,10 @@ import ContactUsPage from '../../components/pages/ContactUsPage.vue';
 export default createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: HomePage },
-        { path: '/show', component: DetailPage },
-        { path: '/contact-us', component: ContactUsPage },
+        { path: '/', component: HomePage, name: 'home' },
+        { path: '/show', component: DetailPage, name: 'detail' },
+        { path: '/contact-us', component: ContactUsPage, name: 'contact-us' },
+        { path: '/:pathMatch(.*)*', redirect: '/', name: 'not-found' },
     ]
 });
 
