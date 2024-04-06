@@ -22,9 +22,9 @@ export default {
             </ul>
 
         </div>
-        <div v-show="words['links']">
+        <div v-show="word['links']">
             <ul class="links">
-                <li v-for="link in words['links']" :key="link.id">
+                <li v-for="link in word['links']" :key="link.id">
                     <RouterLink to="link.url">
                         {{ link.label }}
                     </RouterLink>
@@ -55,6 +55,12 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 20px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
 }
 </style>
