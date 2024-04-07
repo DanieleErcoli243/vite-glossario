@@ -19,9 +19,10 @@ export default {
     <div v-for="word in words" :key="word.id" class="card">
         <div class="space-between">
             <h2>{{ word.title }}</h2>
-            <RouterLink :to="{ name: 'detail', params: { id: post.id } }">Vedi Dettaglio</RouterLink>
+            <RouterLink v-if="!isDetail" :to="{ name: 'detail', params: { id: post.id } }">Vedi Dettaglio</RouterLink>
         </div>
-        <p>{{ word.definition }}</p>
+        <p v-if="isDetail">{{ word.definition }}</p>
+        <p v-if="!isDetail">{{ abstract }}</p>
         <div>
             <ul class="tags">
                 <li v-for="tag in word['tags']" :key="tag.id">
