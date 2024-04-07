@@ -3,15 +3,21 @@ export default {
     name: 'BasePagination',
     props: {
         links: Array
-    }
+    },
+    emits: [
+        'call'
+    ]
 }
+
+
+
 </script>
 
 <template>
     <nav class="pagination">
         <ul>
-            <li v-for="link in words.links" :key="link.label" :class="{ 'active': link.active }" v-if(!link.url)
-                disabled @click="fetchWords(link.url)">
+            <li v-for="link in links" :key="link.label" :class="{ 'active': link.active }" v-if(!link.url) disabled
+                @click="$emit('call', link.url)">
                 <button>{{ link.label }}</button>
             </li>
         </ul>
