@@ -11,7 +11,7 @@ export default {
         word: null
     }),
     methods: {
-        getWord() {
+        async getWord() {
             try {
                 // raccolgo i dati dal database
                 const { data } = await axios.get(baseUri + this.$route.params.id);
