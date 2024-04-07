@@ -1,11 +1,12 @@
 <script>
 import axios from 'axios';
 import BaseCard from '../BaseCard.vue';
+import BasePagination from '../BasePagination.vue'
 const baseUri = 'http://localhost:8000/api/words/';
 export default {
     name: 'HomePage',
     components: {
-        BaseCard
+        BaseCard, BasePagination
     },
     data: () => ({
         words: {
@@ -39,6 +40,7 @@ export default {
 <template>
     <div class="row">
         <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
+        <BasePagination />
     </div>
 
 </template>

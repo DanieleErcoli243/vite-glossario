@@ -1,6 +1,9 @@
 <script>
 export default {
-    name: 'BasePagination'
+    name: 'BasePagination',
+    props: {
+        links: Array
+    }
 }
 </script>
 
