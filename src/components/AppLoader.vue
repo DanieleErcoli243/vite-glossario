@@ -1,6 +1,9 @@
 <script>
 export default {
-    name: 'AppLoader'
+    name: 'AppLoader',
+    data: () => ({
+        isLoading: false
+    })
 };
 </script>
 
