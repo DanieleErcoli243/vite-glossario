@@ -3,9 +3,15 @@ export default {
     name: 'BaseCard',
     props: {
         words: Array,
-        word: Object
+        word: Object,
+        isDetail: Boolean
     },
-
+    computed: {
+        abstract() {
+            const abstract = this.words.definition.substring(0, 150);
+            return abstract + '...';
+        }
+    }
 }
 </script>
 
