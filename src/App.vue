@@ -7,14 +7,14 @@ export default {
     AppHeader
   },
   data: () => ({
-    isloading: false
+    isLoading: false
   })
 };
 </script>
 
 <template>
   <AppHeader />
-  <AppLoader />
+  <AppLoader v-if="isLoading" />
   <div class="container">
     <RouterView />
 
