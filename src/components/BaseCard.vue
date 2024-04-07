@@ -2,7 +2,8 @@
 export default {
     name: 'BaseCard',
     props: {
-        words: Array
+        words: Array,
+        word: Object
     },
 
 }

@@ -33,5 +33,5 @@ export default {
 </script>
 
 <template>
-    <BaseCard />
+    <BaseCard :word="word" />
 </template>
