@@ -40,7 +40,7 @@ export default {
 <template>
     <div class="row">
         <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
-        <BasePagination />
+        <BasePagination :links="words.links" />
     </div>
 
 </template>
