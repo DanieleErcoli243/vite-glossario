@@ -8,7 +8,10 @@ export default {
 </script>
 
 <template>
-    <div class="loader"></div>
+    <div class="loader-background">
+        <div class="loader"></div>
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -31,5 +34,18 @@ export default {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+.loader-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(18, 18, 18, 0.686)
 }
 </style>
