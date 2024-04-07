@@ -5,7 +5,10 @@ export default {
   name: 'Glossario',
   components: {
     AppHeader
-  }
+  },
+  data: () => ({
+    isloading: false
+  })
 };
 </script>
 
