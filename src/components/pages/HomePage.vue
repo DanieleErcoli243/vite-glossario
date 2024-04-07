@@ -17,6 +17,7 @@ export default {
     }),
     methods: {
         async fetchWords(endpoint) {
+            this.isLoading = true;
             if (!endpoint) endpoint = baseUri;
             try {
                 // raccolgo i dati dal database
@@ -29,6 +30,7 @@ export default {
                 // segnalo un eventuale errore
                 console.error(err);
             }
+            this.isLoading = false;
         }
     },
     created() {
@@ -39,13 +41,14 @@ export default {
 </script>
 
 <template>
-    <AppLoader />
-    <div class="row">
+    <AppLoader v-if="isLoading" />
+    <div v-else class="row">
         <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
         <BasePagination :links="words.links" @close="fetchWords(words.links.url)" />
     </div>
 
 </template>
+
 
 <style lang="scss" scoped>
 /* riga */
