@@ -8,7 +8,10 @@ export default {
         BaseCard
     },
     data: () => ({
-        words: []
+        words: {
+            data: [],
+            links: []
+        }
     }),
     methods: {
         async fetchWords() {
@@ -18,7 +21,7 @@ export default {
                 // stampo i risultati in console
                 console.log(data);
                 // riassegno i dati al mio array vuoto
-                this.words = data;
+                this.words = data.data;
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
@@ -34,7 +37,7 @@ export default {
 
 <template>
     <div class="row">
-        <BaseCard v-for="word in words" :key="word.id" :word="word" :isDetail="false" />
+        <BaseCard v-for="word in words.data" :key="word.id" :word="word" :isDetail="false" />
     </div>
 </template>
 
