@@ -15,9 +15,6 @@ export default {
                     <RouterLink :to="{ name: 'home' }">Home</RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'detail' }">Dettaglio</RouterLink>
-                </li>
-                <li>
                     <RouterLink :to="{ name: 'contact-us' }">Contattaci</RouterLink>
                 </li>
             </ul>

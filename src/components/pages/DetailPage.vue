@@ -14,11 +14,12 @@ export default {
         async getWord() {
             try {
                 // raccolgo i dati dal database
-                const { data } = await axios.get(baseUri + this.$route.params.id);
+                const { data } = await axios.get(baseUri + this.$route.params.slug);
                 // stampo i risultati in console
                 console.log(data);
                 // riassegno i dati al mio oggetto vuoto
                 this.word = data;
+                console.log(This.word);
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
@@ -33,5 +34,5 @@ export default {
 </script>
 
 <template>
-    <BaseCard :word="word" />
+    <BaseCard :word="word" :isDetail="true" />
 </template>

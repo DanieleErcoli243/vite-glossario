@@ -2,13 +2,12 @@
 export default {
     name: 'BaseCard',
     props: {
-        words: Array,
         word: Object,
         isDetail: Boolean
     },
     computed: {
         abstract() {
-            const abstract = this.words.definition.substring(0, 150);
+            const abstract = this.word.definition.substring(0, 150);
             return abstract + '...';
         }
     }
@@ -16,14 +15,15 @@ export default {
 </script>
 
 <template>
-    <div v-for="word in words" :key="word.id" class="card">
+    <div class="card">
         <div class="space-between">
             <h2>{{ word.title }}</h2>
-            <RouterLink v-if="!isDetail" :to="{ name: 'detail', params: { id: post.id } }">Vedi Dettaglio</RouterLink>
+            <RouterLink :to="{ name: 'detail', params: { slug: word.slug } }" v-if="!isDetail">Vedi Dettaglio
+            </RouterLink>
         </div>
-        <p v-if="isDetail">{{ word.definition }}</p>
-        <p v-if="!isDetail">{{ abstract }}</p>
-        <div>
+        <p>{{ isDetail ? word.definition : abstract }}</p>
+
+        <div v-if="isDetail">
             <ul class="tags">
                 <li v-for="tag in word['tags']" :key="tag.id">
                     <RouterLink to="/show">
@@ -33,7 +33,7 @@ export default {
             </ul>
 
         </div>
-        <div v-show="word['links']">
+        <div v-if="isDetail" v-show="word['links']">
             <ul class="links">
                 <li v-for="link in word['links']" :key="link.id">
                     <RouterLink to="link.url">
@@ -42,21 +42,24 @@ export default {
                 </li>
             </ul>
         </div>
-
     </div>
+
 </template>
 
 <style lang="scss" scoped>
 .card {
-    border: 1px solid rgb(137, 45, 137);
+    border: 2px solid rgb(137, 45, 137);
     padding: 10px;
     box-shadow: 10px 10px 10px goldenrod;
 
     border-radius: 20px;
 
-    h2 {
-        margin-bottom: 10px;
-    }
+}
+
+/* titolo della card */
+
+h2 {
+    margin-bottom: 10px;
 }
 
 /* lista generica */

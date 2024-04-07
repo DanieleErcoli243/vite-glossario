@@ -34,8 +34,7 @@ export default {
 
 <template>
     <div class="row">
-
-        <BaseCard :words="words" />
+        <BaseCard v-for="word in words" :key="word.id" :word="word" :isDetail="false" />
     </div>
 </template>
 

@@ -11,7 +11,7 @@ export default createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: HomePage, name: 'home' },
-        { path: '/word/:id', component: DetailPage, name: 'detail' },
+        { path: '/word/:slug', component: DetailPage, name: 'detail' },
         { path: '/contact-us', component: ContactUsPage, name: 'contact-us' },
         { path: '/not-found', component: NotFoundPage, name: 'not-found' },
         { path: '/:pathMatch(.*)*', redirect: 'not-found' },
