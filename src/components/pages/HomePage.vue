@@ -17,11 +17,11 @@ export default {
         async fetchWords() {
             try {
                 // raccolgo i dati dal database
-                const { data } = await axios.get(baseUri);
+                const { data, links } = await axios.get(baseUri);
                 // stampo i risultati in console
                 console.log(data);
                 // riassegno i dati al mio array vuoto
-                this.words = data.data;
+                this.words = { data, links };
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
@@ -37,7 +37,7 @@ export default {
 
 <template>
     <div class="row">
-        <BaseCard v-for="word in words.data" :key="word.id" :word="word" :isDetail="false" />
+        <BaseCard v-for="word in words" :key="word.id" :word="word.data" :isDetail="false" />
     </div>
 </template>
 
