@@ -2,6 +2,7 @@
 import axios from 'axios';
 import BaseCard from '../BaseCard.vue';
 import BasePagination from '../BasePagination.vue'
+import { store } from '../../data/store.js'
 const baseUri = 'http://localhost:8000/api/words/';
 export default {
     name: 'HomePage',
@@ -13,7 +14,7 @@ export default {
             data: [],
             links: []
         },
-        isLoading: false
+        store
     }),
     methods: {
         async fetchWords(endpoint) {
@@ -41,7 +42,7 @@ export default {
 </script>
 
 <template>
-    <AppLoader v-if="isLoading" />
+    <AppLoader v-if="store.isLoading" />
     <div v-else class="row">
         <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
         <BasePagination :links="words.links" @close="fetchWords(words.links.url)" />

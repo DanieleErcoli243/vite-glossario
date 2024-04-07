@@ -1,5 +1,6 @@
 <script>
 import BaseCard from '../BaseCard.vue';
+import { store } from '../../data/store.js'
 const baseUri = 'http://localhost:8000/api/words/';
 import axios from 'axios';
 export default {
@@ -8,7 +9,8 @@ export default {
         BaseCard
     },
     data: () => ({
-        word: null
+        word: null,
+        store
     }),
     methods: {
         async getWord() {

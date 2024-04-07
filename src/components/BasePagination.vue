@@ -16,7 +16,7 @@ export default {
 <template>
     <nav class="pagination">
         <ul>
-            <li v-for="link in links" :key="link.label" :class="{ 'active': link.active }" v-if(!link.url) disabled
+            <li v-for="link in links" :key="link.label" :class="{ 'active': link.active }" :disabled="!link.url"
                 @click="$emit('call', link.url)">
                 <button>{{ link.label }}</button>
             </li>
