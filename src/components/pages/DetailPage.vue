@@ -19,7 +19,7 @@ export default {
                 console.log(data);
                 // riassegno i dati al mio oggetto vuoto
                 this.word = data;
-                console.log(This.word);
+
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
