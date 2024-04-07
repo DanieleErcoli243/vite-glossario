@@ -10,28 +10,25 @@ export default {
         BaseCard, BasePagination
     },
     data: () => ({
-        words: {
-            data: [],
-            links: []
-        },
+        words: null,
         store
     }),
     methods: {
         async fetchWords(endpoint) {
-            this.isLoading = true;
             if (!endpoint) endpoint = baseUri;
+            store.isLoading = true;
             try {
                 // raccolgo i dati dal database
-                const { data, links } = await axios.get(baseUri);
+                const { data } = await axios.get(baseUri);
                 // stampo i risultati in console
-                console.log(data, links);
+
                 // riassegno i dati al mio array vuoto
-                this.words = { data, links };
+                this.words = data;
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
             }
-            this.isLoading = false;
+            store.isLoading = false;
         }
     },
     created() {
@@ -42,8 +39,8 @@ export default {
 </script>
 
 <template>
-    <AppLoader v-if="store.isLoading" />
-    <div v-else class="row">
+
+    <div v-if="!store.isLoading" class="row">
         <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
         <BasePagination :links="words.links" @close="fetchWords(words.links.url)" />
     </div>

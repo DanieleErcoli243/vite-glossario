@@ -36,5 +36,6 @@ export default {
 </script>
 
 <template>
-    <BaseCard :word="word" :isDetail="true" />
+    <AppLoader v-if="store.isLoading && !word" />
+    <BaseCard v-if="!store.isLoading && word" :word="word" :isDetail="true" />
 </template>

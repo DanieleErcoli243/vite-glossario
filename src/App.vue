@@ -1,17 +1,22 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import { store } from './data/store';
 
 export default {
   name: 'Glossario',
   components: {
     AppHeader
   },
+  data: () => ({
+    store
+  })
 };
 </script>
 
 <template>
   <AppHeader />
-  <div class="container">
+  <AppLoader v-if="store.isLoading" />
+  <div v-else class="container">
     <RouterView />
 
   </div>
