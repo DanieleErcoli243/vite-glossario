@@ -12,7 +12,8 @@ export default {
         words: {
             data: [],
             links: []
-        }
+        },
+        isLoading: false
     }),
     methods: {
         async fetchWords(endpoint) {
@@ -38,6 +39,7 @@ export default {
 </script>
 
 <template>
+    <AppLoader />
     <div class="row">
         <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
         <BasePagination :links="words.links" @close="fetchWords(words.links.url)" />

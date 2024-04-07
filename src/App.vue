@@ -6,9 +6,6 @@ export default {
   components: {
     AppHeader
   },
-  data: () => ({
-    isLoading: false
-  })
 };
 </script>
 
