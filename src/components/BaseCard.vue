@@ -12,7 +12,7 @@ export default {
     <div v-for="word in words" :key="word.id" class="card">
         <div class="space-between">
             <h2>{{ word.title }}</h2>
-            <RouterLink to="/show">Vedi Dettaglio</RouterLink>
+            <RouterLink :to="{ name: 'detail', params: { id: post.id } }">Vedi Dettaglio</RouterLink>
         </div>
         <p>{{ word.definition }}</p>
         <div>

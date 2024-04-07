@@ -12,13 +12,13 @@ export default {
             </RouterLink>
             <ul>
                 <li>
-                    <RouterLink to="/">Home</RouterLink>
+                    <RouterLink :to="{ name: 'home' }">Home</RouterLink>
                 </li>
                 <li>
-                    <RouterLink to="/show">Dettaglio</RouterLink>
+                    <RouterLink :to="{ name: 'detail' }">Dettaglio</RouterLink>
                 </li>
                 <li>
-                    <RouterLink to="/contact-us">Contattaci</RouterLink>
+                    <RouterLink :to="{ name: 'contact-us' }">Contattaci</RouterLink>
                 </li>
             </ul>
         </nav>
@@ -28,6 +28,7 @@ export default {
 <style lang="scss" scoped>
 header {
     box-shadow: 0 10px 10px lightgray;
+    height: 80px;
 }
 
 /* lista dei link */
