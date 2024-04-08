@@ -15,13 +15,15 @@ export default {
     }),
     methods: {
         async fetchWords(endpoint) {
-            if (!endpoint) endpoint = baseUri;
             store.isLoading = true;
+            if (!endpoint) endpoint = baseUri;
             try {
                 // raccolgo i dati dal database
-                const { data } = await axios.get(baseUri);
+                const res = await axios.get(endpoint);
+                // destrutturo i data dalla res
+                const { data } = res;
                 // stampo i risultati in console
-
+                console.log(data);
                 // riassegno i dati al mio array vuoto
                 this.words = data;
             } catch (err) {

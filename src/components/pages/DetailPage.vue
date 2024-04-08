@@ -14,9 +14,12 @@ export default {
     }),
     methods: {
         async getWord() {
+            store.isLoading = true;
             try {
                 // raccolgo i dati dal database
-                const { data } = await axios.get(baseUri + this.$route.params.slug);
+                const res = await axios.get(baseUri + this.$route.params.slug);
+                // destrutturo i data dalla res
+                const { data } = res;
                 // stampo i risultati in console
                 console.log(data);
                 // riassegno i dati al mio oggetto vuoto
@@ -25,8 +28,9 @@ export default {
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
+                this.$router.push({ name: 'not-found' });
             }
-
+            store.isLoading = false;
         }
     },
     created() {
@@ -36,6 +40,6 @@ export default {
 </script>
 
 <template>
-    <AppLoader v-if="store.isLoading && !word" />
+
     <BaseCard v-if="!store.isLoading && word" :word="word" :isDetail="true" />
 </template>
