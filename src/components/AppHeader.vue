@@ -6,41 +6,22 @@ export default {
 
 <template>
     <header>
-        <nav>
-            <RouterLink to="/">
-                <h1>GLOSSARIO</h1>
-            </RouterLink>
-            <ul>
-                <li>
-                    <RouterLink :to="{ name: 'home' }">Home</RouterLink>
-                </li>
-                <li>
-                    <RouterLink :to="{ name: 'contact-us' }">Contattaci</RouterLink>
-                </li>
-            </ul>
+        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container">
+                <RouterLink class="navbar-brand" to="/">Glossario</RouterLink>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <RouterLink class="nav-link" :to="{ name: 'home' }">Home</RouterLink>
+                        </li>
+                        <li class="nav-item">
+                            <RouterLink class="nav-link" :to="{ name: 'contact-us' }">Contattaci</RouterLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 </template>
 
-<style lang="scss" scoped>
-header {
-    box-shadow: 0 10px 10px lightgray;
-    height: 80px;
-}
-
-/* lista dei link */
-nav {
-    padding: 20px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-
-    ul {
-        list-style-type: none;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-    }
-}
-</style>
+<style lang="scss" scoped></style>

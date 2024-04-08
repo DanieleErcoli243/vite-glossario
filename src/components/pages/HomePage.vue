@@ -25,7 +25,7 @@ export default {
                 // stampo i risultati in console
                 console.log(data);
                 // riassegno i dati al mio array vuoto
-                this.words = data.data;
+                this.words = data;
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
@@ -42,20 +42,13 @@ export default {
 
 <template>
 
-    <div v-if="!store.isLoading" class="row">
-        <BaseCard v-for="word in words" :key="word.id" :word="word" :isDetail="false" />
+    <div v-if="!store.isLoading" class="row my-4">
+        <h1 class="text-center">Words</h1>
+        <BaseCard v-for="word in words.data" :key="word.id" :word="word" :isDetail="false" />
         <BasePagination :links="words.links" @close="fetchWords(words.links.url)" />
     </div>
 
 </template>
 
 
-<style lang="scss" scoped>
-/* riga */
-
-.row {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -14,11 +14,14 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
   <AppLoader v-if="store.isLoading" />
+
+  <!-- Header -->
+  <AppHeader />
+
+  <!-- Pages -->
   <div class="container">
     <RouterView />
-
   </div>
 </template>
 
