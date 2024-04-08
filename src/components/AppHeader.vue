@@ -6,7 +6,7 @@ export default {
 
 <template>
     <header>
-        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container">
                 <RouterLink class="navbar-brand" to="/">Glossario</RouterLink>
                 <div class="collapse navbar-collapse" id="navbarNav">

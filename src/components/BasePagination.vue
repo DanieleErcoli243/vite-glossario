@@ -14,36 +14,14 @@ export default {
 </script>
 
 <template>
-    <nav class="pagination">
-        <ul>
+    <nav aria-label="Page navigation example" class="my-3">
+        <ul class="pagination">
             <li v-for="link in links" :key="link.label" :class="{ 'active': link.active }" :disabled="!link.url"
-                @click="$emit('call', link.url)">
-                <button>{{ link.label }}</button>
+                @click="$emit('call', link.url)" class="page-item"><button class="page-link" href="#">{{ link.label
+                    }}</button>
             </li>
         </ul>
     </nav>
 </template>
 
-<style lang="scss" scoped>
-/* bottoni per la paginazione */
-.pagination {
-    margin-top: 20px;
-
-    ul {
-        list-style-type: none;
-        display: flex;
-
-        li {
-            cursor: pointer;
-        }
-
-    }
-}
-
-/* classe dinamica */
-
-.active {
-    background-color: rgb(187, 41, 209);
-    color: white;
-}
-</style>
+<style lang="scss" scoped></style>

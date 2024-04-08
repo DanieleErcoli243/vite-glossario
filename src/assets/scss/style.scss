@@ -1,2 +1,13 @@
 @use 'reset';
-@use 'generics';
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: white;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgba(42, 41, 41, 0.383);
+}
