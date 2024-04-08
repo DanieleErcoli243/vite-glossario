@@ -10,7 +10,7 @@ export default {
         BaseCard, BasePagination
     },
     data: () => ({
-        words: null,
+        words: [],
         store
     }),
     methods: {
@@ -25,7 +25,7 @@ export default {
                 // stampo i risultati in console
                 console.log(data);
                 // riassegno i dati al mio array vuoto
-                this.words = data;
+                this.words = data.data;
             } catch (err) {
                 // segnalo un eventuale errore
                 console.error(err);
@@ -43,7 +43,7 @@ export default {
 <template>
 
     <div v-if="!store.isLoading" class="row">
-        <BaseCard v-for="word in words.data" :key="word.id" :word="word.data" :isDetail="false" />
+        <BaseCard v-for="word in words" :key="word.id" :word="word" :isDetail="false" />
         <BasePagination :links="words.links" @close="fetchWords(words.links.url)" />
     </div>
 
@@ -56,6 +56,6 @@ export default {
 .row {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 </style>
